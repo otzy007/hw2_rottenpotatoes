@@ -8,7 +8,7 @@
 	%a#title_header{:href => movies_path({:sort => 'title'})} Movie Title
       %th Rating
       %th{:class => @sort_column == 'release_date'?'mkityellow':''}
-	a%a#release_date_headers{:href => movies_path({:sort => 'date'})} Release Date
+	%a#release_date_headers{:href => movies_path({:sort => 'date'})} Release Date
       %th More Info
   %tbody
     - @movies.each do |movie|

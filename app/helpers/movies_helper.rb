@@ -5,6 +5,6 @@ module MoviesHelper
   end
   
   def check?(ratings, rating)
-    !ratings.include rating
+    !ratings.include? rating
   end
 end

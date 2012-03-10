@@ -9,6 +9,7 @@ class MoviesController < ApplicationController
   def index
     @all_ratings = ['G', 'PG', 'PG-13', 'R', 'NC-17']
     @sort_column = params[:sort]
+    ratings = params[:ratings] ? params[:ratings].keys : @all_ratings
     @movies = Movie.all(:order => @sort_column)
   end
 

@@ -3,4 +3,8 @@ module MoviesHelper
   def oddness(count)
     count.odd? ?  "odd" :  "even"
   end
+  
+  def check?(ratings, rating)
+    !ratings.include rating
+  end
 end

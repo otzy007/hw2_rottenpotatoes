@@ -8,11 +8,17 @@ class MoviesController < ApplicationController
 
   def index
     @ratings = @all_ratings = ['G', 'PG', 'PG-13', 'R', 'NC-17']
-    @sort_column = params[:sort]
-    if params[:ratings]
-      @ratings = params[:ratings].is_a?(Hash) ? params[:ratings].keys : params[:ratings]
+    if params[:sort]
+      @sort_column = session[:sort] = params[:sort]
+    elsif session[:sort]
+      @sort_column = session[:sort]
     end
-   @movies = Movie.where(:rating => @ratings).order(@sort_column)
+    if params[:ratings]
+      @ratings = session[:ratings] = params[:ratings].is_a?(Hash) ? params[:ratings].keys : params[:ratings]
+    elsif session[:ratings]
+      @ratings = session[:ratings]
+    end
+    @movies = Movie.where(:rating => @ratings).order(@sort_column)
   end
 
   def new

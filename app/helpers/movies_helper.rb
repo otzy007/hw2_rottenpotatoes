@@ -4,10 +4,10 @@ module MoviesHelper
     count.odd? ?  "odd" :  "even"
   end
   
-  def check?(ratings, rating)
-    if !ratings
-      return false
-    end
-    ratings.include? rating
+  def check?(array, element)
+   if array.size == 5
+    return false
+   end
+   array.include?(element)
   end
 end

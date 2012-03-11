@@ -7,7 +7,7 @@ class MoviesController < ApplicationController
   end
 
   def index
-    ratings = @all_ratings = ['G', 'PG', 'PG-13', 'R', 'NC-17']
+    @ratings = @all_ratings = ['G', 'PG', 'PG-13', 'R', 'NC-17']
     @sort_column = params[:sort]
     if params[:ratings]
       @ratings = params[:ratings] ? params[:ratings].keys : @all_ratings

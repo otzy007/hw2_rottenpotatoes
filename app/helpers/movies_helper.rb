@@ -7,6 +7,7 @@ module MoviesHelper
   def check?(ratings, rating)
     if !ratings
       return false
-    !ratings.include? rating
+    end
+    ratings.include? rating
   end
 end

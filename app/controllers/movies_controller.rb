@@ -23,7 +23,7 @@ class MoviesController < ApplicationController
     end
     
     if @need_redirect
-      redirect_to movies_path(:ratings => @ratings, :sort => @sort_column)
+      redirect_to movie_path(:ratings => @ratings, :sort => @sort_column)
     end
     @movies = Movie.where(:rating => @ratings).order(@sort_column)
   end
